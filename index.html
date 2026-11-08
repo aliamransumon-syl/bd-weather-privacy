@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy Policy — BD Weather</title>
-<meta name="description" content="Privacy policy for the BD Weather Android app: what it collects, and why the answer is nothing.">
+<meta name="description" content="Privacy policy for the BD Weather Android app: what it does with your location, which services it contacts, and why we collect nothing.">
 <style>
   :root{
     --bg:#070c17;
@@ -63,6 +63,7 @@
     border-radius:14px;padding:16px 18px;margin:14px 0 22px;
   }
   .contact b{font-weight:600}
+  p,li,code{overflow-wrap:anywhere}
   footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px;line-height:1.8}
   @media (max-width:520px){
     h1{font-size:27px}
@@ -77,52 +78,106 @@
   <header>
     <span class="badge"><span class="dot"></span>BD Weather · Android</span>
     <h1>Privacy Policy</h1>
-    <p class="sub">Last updated: 17 October 2026</p>
+    <p class="sub">Last updated: 8 November 2026</p>
   </header>
 
   <div class="card">
 
     <p class="lead">
-      BD Weather is a weather app for eight cities in Bangladesh. This policy explains
-      exactly what the app does with your information. The short version:
-      <b>nothing is collected, nothing is sent to us, and we have no servers of our own.</b>
+      BD Weather is a weather app for Bangladesh. It covers every upazila (all 496, across
+      64 districts in 8 divisions) and shows live weather, air quality, prayer times, sun and
+      moon times, alerts and a district map for the place you are in. The short version:
+      <b>we collect nothing and operate no servers.</b> To show you the weather for where you
+      are, the app sends your position straight from your phone to four public services,
+      listed below. Nothing passes through us.
     </p>
 
-    <h2>What the app collects</h2>
-    <p><span class="no">Nothing is collected by us.</span> The app has no accounts, no
-    sign-in, no analytics, no advertising, and no third-party tracking SDKs.</p>
+    <h2>What we collect</h2>
+    <p><span class="no">Nothing.</span> The app has no accounts, no sign-in, no analytics, no
+    advertising, and no third-party tracking SDKs. We operate no servers of our own, so there
+    is nowhere for your data to be sent to us.</p>
 
     <h2>Location</h2>
-    <p>The app asks for location permission <b>only if you tap “Use my location”</b> in the
-    station picker. If you grant it, the coordinates are used on your device, for a moment,
-    for one purpose: to work out which of the eight cities is nearest to you.</p>
-    <p>The coordinates are <b>not stored</b>, <b>not logged</b>, and <b>not sent to us</b>.
-    You can use the whole app without ever granting this permission, and you can revoke it
-    at any time in Android Settings.</p>
+    <p>Location is <b>opt-in</b>. The app asks for permission when you tap <b>“Locate me”</b> /
+    <b>“Use my location”</b>. If you grant it, the app may read your location again on later
+    launches — <i>only</i> while the permission stays granted — to refresh your place and
+    weather. Revoking the permission in Android Settings stops this immediately.</p>
+    <p>The app requests <b>precise location</b> (<code>ACCESS_FINE_LOCATION</code>), with
+    <code>ACCESS_COARSE_LOCATION</code> as the fallback Android lets you choose instead. A
+    precise fix is what lets the app name the neighbourhood or mahalla you are in and pick the
+    nearest of the 496 upazilas (within a 100 km limit — outside Bangladesh the app tells you
+    it cannot help). A coarse fix is only about 2 km wide. If you allow only approximate
+    location, the app still works, with a less exact neighbourhood name.</p>
+    <p>Your position leaves the device only in the requests listed below. We never receive it.</p>
 
-    <h2>Weather data</h2>
-    <p>To show a forecast, the app sends a request to the <b>Open-Meteo</b> public weather
-    API (<code>api.open-meteo.com</code>). That request contains only the coordinates of the
-    selected city — the same request for every user. It contains no identifier about you or
-    your device.</p>
-    <p>Open-Meteo's own privacy policy:
-      <a href="https://open-meteo.com/en/terms" rel="noopener">open-meteo.com/en/terms</a></p>
+    <h2>Third-party services</h2>
+    <p>The app contacts four public services:</p>
+    <ul>
+      <li><b>Open-Meteo weather API</b> — <code>api.open-meteo.com</code>. Receives your
+        position to return your forecast. It also receives the fixed coordinates of
+        Bangladesh's 64 district centres (not your position) for the national map and the
+        national coolest / warmest district.
+        <a href="https://open-meteo.com/en/terms" rel="noopener">Terms</a></li>
+      <li><b>Open-Meteo air-quality API</b> — <code>air-quality-api.open-meteo.com</code>.
+        Receives your position to return the US AQI reading.</li>
+      <li><b>OpenStreetMap Nominatim</b> — <code>nominatim.openstreetmap.org</code>. Receives
+        your position to return the neighbourhood / village name shown in the header. The
+        request also carries the developer's contact email address
+        (<code>aliamransumon@gmail.com</code>), which OpenStreetMap's usage policy requires
+        from apps; it is not your email. Place names © OpenStreetMap contributors.
+        <a href="https://operations.osmfoundation.org/policies/nominatim/" rel="noopener">Usage policy</a></li>
+      <li><b>OpenStreetMap tile servers</b> — <code>tile.openstreetmap.org</code>. When you
+        open the Map tab, your device requests map tiles. A tile request reveals the map area
+        you are viewing and your IP address, not your exact position.</li>
+    </ul>
+    <p>These services may log coordinates and IP addresses in their own access logs under their
+    own policies. The app sends no device identifiers, accounts or advertising IDs. Fonts,
+    weather icons, the map library and all other assets ship inside the app; it fetches nothing
+    from Google Fonts or any other third-party host.</p>
+
+    <h2>What is calculated on your device</h2>
+    <p>Sunrise, sunset, moonrise, moonset, moon phase, prayer times (including Seheri and
+    Iftar), and the heat, storm and air-quality advice shown under <b>Alerts</b> are all
+    calculated on your phone from the forecast data it already holds. Nothing extra is sent
+    anywhere to produce them.</p>
+
+    <h2>Notifications</h2>
+    <p>Daily weather notifications (tomorrow's weather at 9 PM, today's at 7 AM) are
+    <b>opt-in</b>: Android asks for the notification permission when you switch them on. They
+    run entirely on the device using Android's local-notification system — no push servers, no
+    FCM token. Switch them off in the app or in Android Settings at any time.</p>
+
+    <h2>Sharing</h2>
+    <p>The <b>Share</b> button hands a short text summary of the current weather to the share
+    sheet you choose. The app does not send it anywhere itself.</p>
 
     <h2>What is stored on your device</h2>
-    <p>The app saves the following in your device's local app storage, purely so it opens
-    instantly and works offline:</p>
+    <p>The app saves the following in its private local storage, so that it opens instantly and
+    works offline:</p>
     <ul>
-      <li>the last downloaded weather data for the selected city,</li>
-      <li>your chosen city, language and theme.</li>
+      <li>the last downloaded weather and air-quality data for recently viewed upazilas,</li>
+      <li>the upazila last used and the last known neighbourhood name,</li>
+      <li>a map reference for that neighbourhood look-up: your position rounded to about 100
+        metres, kept for about 10 minutes so the app does not repeat the look-up each time it
+        opens,</li>
+      <li>your chosen theme, language, temperature unit and notification setting.</li>
     </ul>
-    <p>This data never leaves your device. Uninstalling the app removes it.</p>
+    <p>This data never leaves your device. Uninstalling the app removes it. The app's Android
+    backup is disabled, so it does not sync to Google Drive or any other cloud backup.</p>
+
+    <h2>Weather alerts and safety tips</h2>
+    <p>Alerts and tips in the app are generated automatically from forecast data. They are
+    general guidance, <b>not</b> official warnings and <b>not</b> medical advice. For official
+    warnings follow the Bangladesh Meteorological Department and local authorities; in an
+    emergency call 999.</p>
 
     <h2>Children</h2>
     <p>The app is suitable for all ages and collects no personal data from anyone, including
     children.</p>
 
     <h2>Changes</h2>
-    <p>Any future change to this policy will be published at this same address.</p>
+    <p>Any future change to this policy will be published at this same address, with a new
+    “last updated” date.</p>
 
     <h2>Contact</h2>
     <div class="contact">
@@ -134,7 +189,7 @@
 
   <footer>
     BD Weather is an independent app and is not affiliated with any government body.<br>
-    Weather data by <a href="https://open-meteo.com/" rel="noopener">Open-Meteo</a>.
+    Forecast and air-quality data by <a href="https://open-meteo.com/" rel="noopener">Open-Meteo</a>. Place names and map © <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap contributors</a>.
   </footer>
 
 </div>
